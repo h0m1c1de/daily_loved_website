@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>DailyLoved — In-Person Check-Ins for Peace of Mind</title>
+  <meta name="description" content="DailyLoved provides in-person check-ins for loved ones, with visit confirmations, short video updates, and a simple wellness questionnaire—on a schedule you choose." />
+  <meta property="og:title" content="DailyLoved — In-Person Check-Ins for Peace of Mind" />
+  <meta property="og:description" content="In-person check-ins with arrival notifications, short video updates, and a wellness questionnaire—on a schedule you choose." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dailyloved.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg: #070b14;
+      --panel: rgba(255,255,255,.06);
+      --panel-2: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --faint: rgba(255,255,255,.55);
+      --stroke: rgba(255,255,255,.14);
+      --brand: #7c3aed;
+      --brand-2:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius-lg: 26px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 18% -10%, rgba(124,58,237,.35), rgba(124,58,237,0) 55%),
+        radial-gradient(900px 600px at 88% 10%, rgba(34,197,94,.22), rgba(34,197,94,0) 50%),
+        radial-gradient(900px 600px at 70% 100%, rgba(245,158,11,.12), rgba(245,158,11,0) 55%),
+        linear-gradient(180deg, #050815 0%, #070b14 45%, #040614 100%);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width: var(--max); margin:0 auto; padding: 0 18px}
+    .row{display:flex; gap:18px}
+    .stack{display:flex; flex-direction:column; gap:14px}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      width: fit-content;
+      backdrop-filter: blur(10px);
+    }
+    .pill .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), #60a5fa);
+      box-shadow: 0 0 0 6px rgba(124,58,237,.15);
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,11,20,.6);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight: 750;
+      letter-spacing: .2px;
+    }
+    .logo{
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, var(--brand), #0ea5e9 55%, var(--brand-2));
+      box-shadow: 0 16px 50px rgba(124,58,237,.25);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .navlinks{
+      display:flex;
+      gap: 14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .navlinks a{
+      font-size: 14px;
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .navlinks a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 14px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,58,237,.92), rgba(14,165,233,.78));
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(124,58,237,1), rgba(14,165,233,.9))}
+    .btn.green{
+      background: linear-gradient(135deg, rgba(34,197,94,.9), rgba(16,185,129,.76));
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.green:hover{background: linear-gradient(135deg, rgba(34,197,94,1), rgba(16,185,129,.9))}
+    .btn.small{padding: 10px 12px; font-size: 13px}
+    .btn.ghost{background: rgba(255,255,255,.05)}
+    .btn .icon{width:18px;height:18px; display:inline-block}
+
+    .hero{
+      padding: 52px 0 28px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .h1{
+      font-size: clamp(34px, 4.3vw, 56px);
+      line-height: 1.03;
+      margin: 10px 0 12px;
+      letter-spacing: -.8px;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 60ch;
+      margin: 0 0 18px;
+    }
+    .hero-card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card-inner{padding: 18px}
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 220px at 50% 0%, rgba(124,58,237,.28), rgba(124,58,237,0) 60%),
+                  radial-gradient(460px 260px at 100% 20%, rgba(34,197,94,.18), rgba(34,197,94,0) 60%);
+      pointer-events:none;
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .kpi{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .kpi .num{font-weight: 800; font-size: 16px}
+    .kpi .lbl{color: var(--faint); font-size: 13px; margin-top: 4px}
+
+    .cta-row{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 18px;
+    }
+
+    .form{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px;
+    }
+    .input{
+      flex: 1 1 220px;
+      min-width: 220px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(5,8,14,.55);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    .input::placeholder{color: rgba(255,255,255,.42)}
+    .micro{
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      line-height: 1.4;
+      margin: 10px 0 0;
+    }
+
+    section{padding: 28px 0}
+    .section-title{
+      font-size: 20px;
+      margin: 0 0 10px;
+      letter-spacing: -.2px;
+    }
+    .section-lead{color: var(--muted); margin:0 0 18px; line-height:1.55}
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .card p{margin:0; color: var(--muted); line-height:1.55; font-size: 14px}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.75);
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .badge .spark{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: rgba(34,197,94,.9);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
+    }
+    .badge.purple .spark{background: rgba(124,58,237,.95); box-shadow: 0 0 0 6px rgba(124,58,237,.14)}
+    .badge.amber .spark{background: rgba(245,158,11,.95); box-shadow: 0 0 0 6px rgba(245,158,11,.14)}
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      counter-reset: step;
+    }
+    .step{
+      position:relative;
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      overflow:hidden;
+    }
+    .step::before{
+      counter-increment: step;
+      content: counter(step);
+      position:absolute;
+      top: 12px; right: 12px;
+      font-family: var(--mono);
+      font-weight: 900;
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+    }
+    .step h4{margin: 0 0 8px; font-size: 15px}
+    .step p{margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55}
+
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .plan{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .plan.popular{
+      background: linear-gradient(180deg, rgba(124,58,237,.14), rgba(255,255,255,.05));
+      border-color: rgba(124,58,237,.35);
+      box-shadow: 0 24px 70px rgba(124,58,237,.15);
+    }
+    .ribbon{
+      position:absolute;
+      top: 14px; left: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      background: rgba(124,58,237,.95);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .plan h3{margin:0; font-size: 16px}
+    .price{
+      display:flex;
+      align-items:flex-end;
+      gap: 8px;
+    }
+    .price .amt{
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -.6px;
+      line-height: 1;
+    }
+    .price .per{color: var(--muted); font-size: 13px; padding-bottom: 6px}
+    .plan ul{
+      margin:0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .plan li{margin: 8px 0}
+    .plan .meta{
+      color: rgba(255,255,255,.58);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .plan .actions{display:flex; gap: 10px; flex-wrap:wrap; margin-top:auto}
+
+    .addons{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .addon{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    }
+    .addon .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .addon h3{margin:0; font-size: 16px}
+    .addon .tag{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.75);
+      white-space:nowrap;
+    }
+    .addon p{margin:0; color: var(--muted); line-height:1.55; font-size: 14px}
+    .addon .fine{margin-top:10px; color: rgba(255,255,255,.55); font-size:12px; line-height:1.45}
+
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    details{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.2);
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight: 700;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary .chev{
+      width: 18px; height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(255,255,255,.72);
+      flex: 0 0 auto;
+    }
+    details[open] summary .chev{transform: rotate(180deg)}
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .footer{
+      padding: 28px 0 36px;
+      color: rgba(255,255,255,.6);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 10px;
+    }
+    .footgrid{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .mini-links{
+      display:flex; gap: 10px; flex-wrap:wrap;
+    }
+    .mini-links a{
+      color: rgba(255,255,255,.65);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,.04);
+    }
+    .mini-links a:hover{
+      color: rgba(255,255,255,.9);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+
+    .note{
+      border-left: 3px solid rgba(34,197,94,.9);
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(34,197,94,.08);
+      border: 1px solid rgba(34,197,94,.16);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      line-height:1.5;
+    }
+
+    .callout{
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(34,197,94,.10));
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .callout h3{margin:0; font-size: 16px}
+    .callout p{margin: 6px 0 0; color: var(--muted); line-height:1.55; font-size: 14px; max-width: 70ch}
+
+    .smallprint{
+      color: rgba(255,255,255,.52);
+      font-size: 12px;
+      line-height:1.45;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .kpis{grid-template-columns: repeat(3, 1fr)}
+      .steps{grid-template-columns: 1fr 1fr}
+      .pricing{grid-template-columns: 1fr}
+      .grid-3{grid-template-columns: 1fr}
+      .addons{grid-template-columns: 1fr}
+      .faq{grid-template-columns: 1fr}
+    }
+    @media (max-width: 520px){
+      .kpis{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr}
+      .navlinks{display:none}
+      .input{min-width: 100%}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="DailyLoved Home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>DailyLoved</span>
+          <span style="font-weight:650;color:rgba(255,255,255,.55);font-size:12px">dailyloved.com</span>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#included">What’s included</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#addons">Add-ons</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn small ghost" href="#pricing">View pricing</a>
+          <a class="btn small primary" href="#contact">Get started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="stack">
+            <div class="pill"><span class="dot"></span> In-person check-ins for peace of mind — on your schedule</div>
+            <h1 class="h1">A trusted human check-in for your loved one — with proof, updates, and accountability.</h1>
+            <p class="lead">
+              DailyLoved sends a trained companion to visit your loved one at intervals you choose.
+              You get an arrival notification, a short video update, and a quick wellness questionnaire—without crossing into medical care.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn primary" href="#contact">
+                <span class="icon" aria-hidden="true">✅</span>
+                Start a plan
+              </a>
+              <a class="btn" href="#how">
+                <span class="icon" aria-hidden="true">▶</span>
+                See how it works
+              </a>
+              <a class="btn green" href="#addons">
+                <span class="icon" aria-hidden="true">➕</span>
+                Add companion services
+              </a>
+            </div>
+
+            <div class="kpis" aria-label="Highlights">
+              <div class="kpi">
+                <div class="num">30 minutes</div>
+                <div class="lbl">per visit included</div>
+              </div>
+              <div class="kpi">
+                <div class="num">Arrival alerts</div>
+                <div class="lbl">instant notifications</div>
+              </div>
+              <div class="kpi">
+                <div class="num">Video + questionnaire</div>
+                <div class="lbl">a simple weekly record</div>
+              </div>
+            </div>
+
+            <p class="micro">
+              DailyLoved is a companionship and check-in service. It does not provide medical treatment, diagnosis, or hands-on clinical care.
+            </p>
+          </div>
+
+          <div class="hero-card" aria-label="Preview">
+            <div class="hero-card-inner">
+              <div class="badge purple"><span class="spark"></span> What you receive after each visit</div>
+              <div class="stack">
+                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
+                  <h3>1) “Arrived” notification</h3>
+                  <p>The companion taps Arrived in the app. You’re immediately notified.</p>
+                </div>
+                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
+                  <h3>2) Short video update</h3>
+                  <p>A quick video upload so you can see and hear how they’re doing.</p>
+                </div>
+                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
+                  <h3>3) Simple questionnaire</h3>
+                  <p>Mood, appetite, hydration, and notes—delivered to your app & web dashboard.</p>
+                </div>
+
+                <div class="note">
+                  Optional: During the visit, companions can help capture a grocery list and place an online delivery order (delivery fees paid separately to the merchant).
+                </div>
+              </div>
+
+              <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn small primary" href="#contact">Request early access</a>
+                <a class="btn small" href="#pricing">See pricing tiers</a>
+              </div>
+
+              <div class="smallprint">
+                Video and questionnaire availability notifications are sent after upload is completed.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-lead">Pick a schedule, receive verified check-ins, and stay informed without managing logistics.</p>
+
+        <div class="steps">
+          <div class="step">
+            <h4>Choose a plan</h4>
+            <p>Select 1, 2, 3, 5, or 7 days per week. You can add notes (preferred times, entry instructions, etc.).</p>
+          </div>
+          <div class="step">
+            <h4>Companion visits</h4>
+            <p>A human arrives and spends ~30 minutes checking in, conversing, and observing general wellness.</p>
+          </div>
+          <div class="step">
+            <h4>Arrived + updates</h4>
+            <p>You get an arrival notification, then a video update and questionnaire results once submitted.</p>
+          </div>
+          <div class="step">
+            <h4>Escalation rules</h4>
+            <p>Set contact preferences: notify family, neighbor, or emergency contacts if something seems concerning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="included">
+      <div class="container">
+        <h2 class="section-title">What’s included in every visit</h2>
+        <p class="section-lead">
+          Each check-in focuses on companionship, observation, and communication—helpful data without medical intervention.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge"><span class="spark"></span> 30-minute in-person visit</div>
+            <h3>Human connection</h3>
+            <p>Friendly conversation and a real presence—not a robot, not a phone call. Helps reduce isolation and keeps you in the loop.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge purple"><span class="spark"></span> Video update</div>
+            <h3>See how they’re doing</h3>
+            <p>A short video is uploaded after the visit. You can review anytime in the mobile app or web dashboard.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge amber"><span class="spark"></span> Quick questionnaire</div>
+            <h3>Simple wellness snapshot</h3>
+            <p>Mood, eating, hydration, general notes. You get consistent information across visits—easy to track over time.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="callout">
+          <div>
+            <h3>Built for families managing from a distance</h3>
+            <p>
+              DailyLoved is designed for adult children, caregivers, and family members who want verified, consistent check-ins
+              without committing to full-time in-home care.
+            </p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact">Talk to us</a>
+            <a class="btn" href="#faq">Read the FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2 class="section-title">Pricing (weekly plans)</h2>
+        <p class="section-lead">
+          Plans include scheduled visits, arrival notifications, video upload, and a questionnaire after each visit.
+          Adjust these numbers to match your market and staffing costs.
+        </p>
+
+        <div class="pricing" role="list">
+          <div class="plan" role="listitem">
+            <h3>1 Day / Week</h3>
+            <div class="price">
+              <div class="amt">$99</div>
+              <div class="per">per week</div>
+            </div>
+            <ul>
+              <li>1 scheduled in-person visit (30 min)</li>
+              <li>Arrival notification</li>
+              <li>Video update + questionnaire</li>
+              <li>Grocery list help + online order placement</li>
+            </ul>
+            <div class="meta">Good for a steady baseline check-in.</div>
+            <div class="actions">
+              <a class="btn primary" href="#contact">Choose 1x/week</a>
+              <a class="btn" href="#addons">See add-ons</a>
+            </div>
+          </div>
+
+          <div class="plan popular" role="listitem">
+            <div class="ribbon">Most popular</div>
+            <h3>3 Days / Week</h3>
+            <div class="price">
+              <div class="amt">$249</div>
+              <div class="per">per week</div>
+            </div>
+            <ul>
+              <li>3 scheduled visits (30 min each)</li>
+              <li>Arrival notifications</li>
+              <li>Video update + questionnaire each visit</li>
+              <li>Priority scheduling windows</li>
+            </ul>
+            <div class="meta">Great balance of coverage and cost.</div>
+            <div class="actions">
+              <a class="btn primary" href="#contact">Choose 3x/week</a>
+              <a class="btn ghost" href="#faq">What’s included?</a>
+            </div>
+          </div>
+
+          <div class="plan" role="listitem">
+            <h3>5 Days / Week</h3>
+            <div class="price">
+              <div class="amt">$399</div>
+              <div class="per">per week</div>
+            </div>
+            <ul>
+              <li>5 scheduled visits (weekdays)</li>
+              <li>Arrival notifications</li>
+              <li>Video update + questionnaire each visit</li>
+              <li>Weekly summary (optional)</li>
+            </ul>
+            <div class="meta">Ideal for weekday consistency.</div>
+            <div class="actions">
+              <a class="btn primary" href="#contact">Choose 5x/week</a>
+              <a class="btn" href="#addons">Add companion services</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="grid-3">
+          <div class="card">
+            <div class="badge"><span class="spark"></span> 2 Days / Week</div>
+            <h3>$179 / week</h3>
+            <p>Two visits per week for stronger coverage without daily frequency.</p>
+          </div>
+          <div class="card">
+            <div class="badge purple"><span class="spark"></span> 7 Days / Week</div>
+            <h3>$499 / week</h3>
+            <p>Daily visits for maximum peace of mind (best for higher-need situations).</p>
+          </div>
+          <div class="card">
+            <div class="badge amber"><span class="spark"></span> Custom schedules</div>
+            <h3>Talk to us</h3>
+            <p>Need evenings, split visits, or multiple household members? We can scope a custom plan.</p>
+          </div>
+        </div>
+
+        <p class="smallprint">
+          Prices shown are placeholders for marketing. In production, you can display local pricing by region, travel distance, and staffing availability.
+        </p>
+      </div>
+    </section>
+
+    <section id="addons">
+      <div class="container">
+        <h2 class="section-title">Add-on companion services</h2>
+        <p class="section-lead">
+          Need more than a check-in? Add companion time for appointments, errands, and other non-medical assistance.
+        </p>
+
+        <div class="addons">
+          <div class="addon">
+            <div class="top">
+              <h3>Doctor’s appointment companion</h3>
+              <div class="tag">$100 / hour</div>
+            </div>
+            <p>
+              Companion support from the time of arrival at home until return from the appointment.
+              No medical advice or hands-on care—purely assistance and companionship.
+            </p>
+            <div class="fine">Travel time is included in the hourly window. Any medical decisions remain with the patient and provider.</div>
+          </div>
+
+          <div class="addon">
+            <div class="top">
+              <h3>Errands & grocery companion</h3>
+              <div class="tag">$65 / hour</div>
+            </div>
+            <p>
+              Grocery store runs, simple errands, or helping coordinate delivery orders.
+              Great for weekly household needs and reducing burden on family.
+            </p>
+            <div class="fine">Merchandise, delivery fees, and tips are paid directly to the merchant/service.</div>
+          </div>
+
+          <div class="addon">
+            <div class="top">
+              <h3>Extended visit</h3>
+              <div class="tag">+$30 / 30 min</div>
+            </div>
+            <p>
+              Add extra time to any scheduled check-in for longer conversation, list-making, or coordination tasks.
+            </p>
+            <div class="fine">Subject to availability and scheduling windows.</div>
+          </div>
+
+          <div class="addon">
+            <div class="top">
+              <h3>Family summary report</h3>
+              <div class="tag">$15 / week</div>
+            </div>
+            <p>
+              A simple weekly roll-up of mood, appetite, hydration notes, and key observations across visits.
+            </p>
+            <div class="fine">Generated from companion entries and submitted media—no medical conclusions.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-lead">Clear boundaries, practical expectations, and what we do (and don’t) do.</p>
+
+        <div class="faq">
+          <details>
+            <summary>
+              Is DailyLoved medical care?
+              <span class="chev">⌄</span>
+            </summary>
+            <p>
+              No. DailyLoved is a non-medical companionship and check-in service. Companions do not provide medical treatment, diagnosis,
+              medication administration, wound care, or clinical interventions.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Can you ask about medications?
+              <span class="chev">⌄</span>
+            </summary>
+            <p>
+              A safe approach is to ask a non-clinical question like “Did you take your meds as prescribed today?” and record the person’s response,
+              without handling medications or making recommendations. You should also consult counsel for your jurisdiction and carefully phrase
+              the questionnaire to stay within non-medical scope.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              What if something seems wrong during a visit?
+              <span class="chev">⌄</span>
+            </summary>
+            <p>
+              You can define escalation rules (notify family, a neighbor, or an emergency contact). If an urgent emergency is suspected,
+              the companion should follow your defined emergency protocol and local emergency guidance.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              How do notifications work?
+              <span class="chev">⌄</span>
+            </summary>
+            <p>
+              The companion taps “Arrived” in the app, triggering an immediate alert. After the visit, the video and questionnaire are uploaded,
+              and you receive another notification when they’re available.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Can you help with groceries?
+              <span class="chev">⌄</span>
+            </summary>
+            <p>
+              Yes—during the visit, the companion can help gather a grocery list and place an online order for delivery.
+              Purchases and delivery fees are paid directly to the merchant/service.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              What areas do you serve?
+              <span class="chev">⌄</span>
+            </summary>
+            <p>
+              Initially, availability will be region-based. Join the waitlist and tell us your city—launch priority will follow demand and staffing.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h3>Get early access + launch updates</h3>
+            <p>
+              Building the iOS, Android, and web dashboard now. Leave your email and we’ll reach out with availability, pricing in your area,
+              and onboarding steps.
+            </p>
+            <div class="smallprint">
+              Tip: Replace the form action with your email capture provider (Mailchimp, ConvertKit, Buttondown, etc.) when ready.
+            </div>
+          </div>
+
+          <div style="min-width: min(420px, 100%);">
+            <form class="form" action="mailto:hello@dailyloved.com" method="post" enctype="text/plain">
+              <input class="input" type="text" name="name" placeholder="Your name" aria-label="Your name" required />
+              <input class="input" type="email" name="email" placeholder="Email address" aria-label="Email address" required />
+              <input class="input" type="text" name="city" placeholder="City / Region" aria-label="City or Region" />
+              <button class="btn primary" type="submit">Request early access</button>
+            </form>
+            <p class="micro">
+              By submitting, you agree to receive updates about availability and onboarding. Unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footgrid">
+          <div class="stack" style="gap:8px">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span class="logo" aria-hidden="true" style="width:30px;height:30px;border-radius:11px"></span>
+              <div>
+                <div style="font-weight:800; color: rgba(255,255,255,.88)">DailyLoved</div>
+                <div style="color: rgba(255,255,255,.55); font-size:12px;">In-person check-ins • Video updates • Simple wellness snapshots</div>
+              </div>
+            </div>
+            <div style="color: rgba(255,255,255,.55); font-size:12px; line-height:1.5; max-width: 80ch;">
+              DailyLoved provides non-medical companionship and check-in services. It does not provide medical care or emergency services.
+              If you believe someone is experiencing a medical emergency, call local emergency services.
+            </div>
+            <div style="color: rgba(255,255,255,.45); font-size:12px;">
+              © <span id="year"></span> DailyLoved. All rights reserved.
+            </div>
+          </div>
+
+          <div class="mini-links" aria-label="Footer links">
+            <a href="#how">How it works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#addons">Add-ons</a>
+            <a href="#faq">FAQ</a>
+            <a href="mailto:hello@dailyloved.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>
