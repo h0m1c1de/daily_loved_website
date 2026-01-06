@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
   <title>DailyLoved — In-Person Check-Ins for Peace of Mind</title>
-  <meta name="description" content="DailyLoved provides in-person check-ins for loved ones, with visit confirmations, short video updates, and a simple wellness questionnaire—on a schedule you choose." />
+  <meta name="description" content="DailyLoved provides in-person check-ins for loved ones, with arrival confirmations, short video updates, and a simple wellness questionnaire—on a schedule you choose." />
   <meta property="og:title" content="DailyLoved — In-Person Check-Ins for Peace of Mind" />
-  <meta property="og:description" content="In-person check-ins with arrival notifications, short video updates, and a wellness questionnaire—on a schedule you choose." />
+  <meta property="og:description" content="In-person check-ins with arrival notifications, short video updates, and a simple wellness questionnaire—on a schedule you choose." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dailyloved.com/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -49,7 +49,6 @@
 
     a{color:inherit; text-decoration:none}
     .container{max-width: var(--max); margin:0 auto; padding: 0 18px}
-    .row{display:flex; gap:18px}
     .stack{display:flex; flex-direction:column; gap:14px}
 
     .pill{
@@ -150,9 +149,7 @@
     .btn.ghost{background: rgba(255,255,255,.05)}
     .btn .icon{width:18px;height:18px; display:inline-block}
 
-    .hero{
-      padding: 52px 0 28px;
-    }
+    .hero{padding: 52px 0 28px}
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -204,17 +201,9 @@
     .kpi .num{font-weight: 800; font-size: 16px}
     .kpi .lbl{color: var(--faint); font-size: 13px; margin-top: 4px}
 
-    .cta-row{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 18px;
-    }
+    .cta-row{display:flex; gap: 10px; flex-wrap:wrap; align-items:center; margin-top: 18px}
 
-    .form{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px;
-    }
+    .form{display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px}
     .input{
       flex: 1 1 220px;
       min-width: 220px;
@@ -227,26 +216,13 @@
       font-size: 14px;
     }
     .input::placeholder{color: rgba(255,255,255,.42)}
-    .micro{
-      color: rgba(255,255,255,.55);
-      font-size: 12px;
-      line-height: 1.4;
-      margin: 10px 0 0;
-    }
+    .micro{color: rgba(255,255,255,.55); font-size: 12px; line-height: 1.4; margin: 10px 0 0}
 
     section{padding: 28px 0}
-    .section-title{
-      font-size: 20px;
-      margin: 0 0 10px;
-      letter-spacing: -.2px;
-    }
+    .section-title{font-size: 20px; margin: 0 0 10px; letter-spacing: -.2px}
     .section-lead{color: var(--muted); margin:0 0 18px; line-height:1.55}
 
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px}
     .card{
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
@@ -254,11 +230,7 @@
       padding: 16px;
       box-shadow: 0 18px 50px rgba(0,0,0,.25);
     }
-    .card h3{
-      margin:0 0 8px;
-      font-size: 16px;
-      letter-spacing: -.2px;
-    }
+    .card h3{margin:0 0 8px; font-size: 16px; letter-spacing: -.2px}
     .card p{margin:0; color: var(--muted); line-height:1.55; font-size: 14px}
     .badge{
       display:inline-flex;
@@ -334,9 +306,12 @@
       border-color: rgba(124,58,237,.35);
       box-shadow: 0 24px 70px rgba(124,58,237,.15);
     }
+
     .ribbon{
       position:absolute;
-      top: 14px; left: 14px;
+      top: 14px;
+      right: 14px;
+      left: auto;
       padding: 8px 10px;
       border-radius: 999px;
       font-size: 12px;
@@ -344,18 +319,10 @@
       background: rgba(124,58,237,.95);
       border: 1px solid rgba(255,255,255,.18);
     }
+
     .plan h3{margin:0; font-size: 16px}
-    .price{
-      display:flex;
-      align-items:flex-end;
-      gap: 8px;
-    }
-    .price .amt{
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: -.6px;
-      line-height: 1;
-    }
+    .price{display:flex; align-items:flex-end; gap: 8px}
+    .price .amt{font-size: 34px; font-weight: 900; letter-spacing: -.6px; line-height: 1}
     .price .per{color: var(--muted); font-size: 13px; padding-bottom: 6px}
     .plan ul{
       margin:0;
@@ -365,12 +332,61 @@
       font-size: 14px;
     }
     .plan li{margin: 8px 0}
-    .plan .meta{
-      color: rgba(255,255,255,.58);
-      font-size: 12px;
-      line-height: 1.4;
-    }
+    .plan .meta{color: rgba(255,255,255,.58); font-size: 12px; line-height: 1.4}
     .plan .actions{display:flex; gap: 10px; flex-wrap:wrap; margin-top:auto}
+
+    .calc{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      margin-top: 14px;
+    }
+    .calc h3{margin:0 0 10px; font-size: 16px}
+    .calc-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 12px;
+      align-items:start;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+    .label{
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+    }
+    .select{
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(5,8,14,.55);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+      appearance:none;
+    }
+    .result{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+    }
+    .result .big{
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -.3px;
+      margin: 2px 0 6px;
+    }
+    .result .small{
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      line-height:1.4;
+    }
 
     .addons{
       display:grid;
@@ -446,36 +462,6 @@
       font-size: 14px;
     }
 
-    .footer{
-      padding: 28px 0 36px;
-      color: rgba(255,255,255,.6);
-      font-size: 13px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      margin-top: 10px;
-    }
-    .footgrid{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-    }
-    .mini-links{
-      display:flex; gap: 10px; flex-wrap:wrap;
-    }
-    .mini-links a{
-      color: rgba(255,255,255,.65);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      background: rgba(255,255,255,.04);
-    }
-    .mini-links a:hover{
-      color: rgba(255,255,255,.9);
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-    }
-
     .note{
       border-left: 3px solid rgba(34,197,94,.9);
       padding: 10px 12px;
@@ -502,12 +488,35 @@
     .callout h3{margin:0; font-size: 16px}
     .callout p{margin: 6px 0 0; color: var(--muted); line-height:1.55; font-size: 14px; max-width: 70ch}
 
-    .smallprint{
-      color: rgba(255,255,255,.52);
-      font-size: 12px;
-      line-height:1.45;
-      margin-top: 8px;
+    .footer{
+      padding: 28px 0 36px;
+      color: rgba(255,255,255,.6);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 10px;
     }
+    .footgrid{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .mini-links{display:flex; gap: 10px; flex-wrap:wrap}
+    .mini-links a{
+      color: rgba(255,255,255,.65);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,.04);
+    }
+    .mini-links a:hover{
+      color: rgba(255,255,255,.9);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+
+    .smallprint{color: rgba(255,255,255,.52); font-size: 12px; line-height:1.45; margin-top: 8px}
 
     @media (max-width: 980px){
       .hero-grid{grid-template-columns: 1fr}
@@ -517,6 +526,7 @@
       .grid-3{grid-template-columns: 1fr}
       .addons{grid-template-columns: 1fr}
       .faq{grid-template-columns: 1fr}
+      .calc-grid{grid-template-columns: 1fr}
     }
     @media (max-width: 520px){
       .kpis{grid-template-columns: 1fr}
@@ -541,6 +551,7 @@
           <a href="#how">How it works</a>
           <a href="#included">What’s included</a>
           <a href="#pricing">Pricing</a>
+          <a href="#service-area">Service area</a>
           <a href="#addons">Add-ons</a>
           <a href="#faq">FAQ</a>
         </nav>
@@ -566,33 +577,15 @@
             </p>
 
             <div class="cta-row">
-              <a class="btn primary" href="#contact">
-                <span class="icon" aria-hidden="true">✅</span>
-                Start a plan
-              </a>
-              <a class="btn" href="#how">
-                <span class="icon" aria-hidden="true">▶</span>
-                See how it works
-              </a>
-              <a class="btn green" href="#addons">
-                <span class="icon" aria-hidden="true">➕</span>
-                Add companion services
-              </a>
+              <a class="btn primary" href="#contact"><span class="icon" aria-hidden="true">✅</span>Start a plan</a>
+              <a class="btn" href="#how"><span class="icon" aria-hidden="true">▶</span>See how it works</a>
+              <a class="btn green" href="#addons"><span class="icon" aria-hidden="true">➕</span>Add companion services</a>
             </div>
 
             <div class="kpis" aria-label="Highlights">
-              <div class="kpi">
-                <div class="num">30 minutes</div>
-                <div class="lbl">per visit included</div>
-              </div>
-              <div class="kpi">
-                <div class="num">Arrival alerts</div>
-                <div class="lbl">instant notifications</div>
-              </div>
-              <div class="kpi">
-                <div class="num">Video + questionnaire</div>
-                <div class="lbl">a simple weekly record</div>
-              </div>
+              <div class="kpi"><div class="num">30 minutes</div><div class="lbl">per visit included</div></div>
+              <div class="kpi"><div class="num">Arrival alerts</div><div class="lbl">instant notifications</div></div>
+              <div class="kpi"><div class="num">Video + questionnaire</div><div class="lbl">a simple weekly record</div></div>
             </div>
 
             <p class="micro">
@@ -644,11 +637,11 @@
         <div class="steps">
           <div class="step">
             <h4>Choose a plan</h4>
-            <p>Select 1, 2, 3, 5, or 7 days per week. You can add notes (preferred times, entry instructions, etc.).</p>
+            <p>Select 1, 2, 3, 5, or 7 days a week. You can add notes (preferred times, entry instructions, etc.).</p>
           </div>
           <div class="step">
-            <h4>Companion visits</h4>
-            <p>A human arrives and spends ~30 minutes checking in, conversing, and observing general wellness.</p>
+            <h4>Local companion visits</h4>
+            <p>We assign companions by neighborhood to reduce travel time and increase reliability. Familiar faces build trust over time.</p>
           </div>
           <div class="step">
             <h4>Arrived + updates</h4>
@@ -691,10 +684,10 @@
 
         <div style="margin-top:14px" class="callout">
           <div>
-            <h3>Built for families managing from a distance</h3>
+            <h3>Local companions. Familiar faces. Consistent check-ins.</h3>
             <p>
-              DailyLoved is designed for adult children, caregivers, and family members who want verified, consistent check-ins
-              without committing to full-time in-home care.
+              DailyLoved assigns companions by neighborhood—so your loved one sees a familiar face and your schedule stays reliable.
+              Shorter travel time means less rushing and better visits.
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -707,46 +700,28 @@
 
     <section id="pricing">
       <div class="container">
-        <h2 class="section-title">Pricing (weekly plans)</h2>
+        <h2 class="section-title">Pricing (weekly, billed bi-weekly)</h2>
         <p class="section-lead">
-          Plans include scheduled visits, arrival notifications, video upload, and a questionnaire after each visit.
-          Adjust these numbers to match your market and staffing costs.
+          Listed prices are for <strong>weekday visits</strong> (Mon–Fri). Weekend visits carry a <strong>+25% premium per weekend visit</strong>.
+          The 7-day plan includes weekends with no additional weekend premium.
         </p>
 
         <div class="pricing" role="list">
-          <div class="plan" role="listitem">
-            <h3>1 Day / Week</h3>
-            <div class="price">
-              <div class="amt">$99</div>
-              <div class="per">per week</div>
-            </div>
-            <ul>
-              <li>1 scheduled in-person visit (30 min)</li>
-              <li>Arrival notification</li>
-              <li>Video update + questionnaire</li>
-              <li>Grocery list help + online order placement</li>
-            </ul>
-            <div class="meta">Good for a steady baseline check-in.</div>
-            <div class="actions">
-              <a class="btn primary" href="#contact">Choose 1x/week</a>
-              <a class="btn" href="#addons">See add-ons</a>
-            </div>
-          </div>
-
           <div class="plan popular" role="listitem">
             <div class="ribbon">Most popular</div>
-            <h3>3 Days / Week</h3>
+            <h3>3 Visits / Week</h3>
             <div class="price">
-              <div class="amt">$249</div>
+              <div class="amt" id="p3_week">$—</div>
               <div class="per">per week</div>
             </div>
+            <div class="smallprint" id="p3_cycle">Billed bi-weekly: —</div>
             <ul>
-              <li>3 scheduled visits (30 min each)</li>
+              <li>3 scheduled visits per week (30 min each)</li>
               <li>Arrival notifications</li>
               <li>Video update + questionnaire each visit</li>
               <li>Priority scheduling windows</li>
             </ul>
-            <div class="meta">Great balance of coverage and cost.</div>
+            <div class="meta">Weekday pricing shown. Add weekend visits below to see the premium.</div>
             <div class="actions">
               <a class="btn primary" href="#contact">Choose 3x/week</a>
               <a class="btn ghost" href="#faq">What’s included?</a>
@@ -754,18 +729,39 @@
           </div>
 
           <div class="plan" role="listitem">
-            <h3>5 Days / Week</h3>
+            <h3>1 Visit / Week</h3>
             <div class="price">
-              <div class="amt">$399</div>
+              <div class="amt" id="p1_week">$—</div>
               <div class="per">per week</div>
             </div>
+            <div class="smallprint" id="p1_cycle">Billed bi-weekly: —</div>
             <ul>
-              <li>5 scheduled visits (weekdays)</li>
+              <li>1 scheduled in-person visit per week (30 min)</li>
+              <li>Arrival notification</li>
+              <li>Video update + questionnaire</li>
+              <li>Grocery list help + online order placement</li>
+            </ul>
+            <div class="meta">Weekday pricing shown. Weekend visit is +25%.</div>
+            <div class="actions">
+              <a class="btn primary" href="#contact">Choose 1x/week</a>
+              <a class="btn" href="#addons">See add-ons</a>
+            </div>
+          </div>
+
+          <div class="plan" role="listitem">
+            <h3>5 Visits / Week</h3>
+            <div class="price">
+              <div class="amt" id="p5_week">$—</div>
+              <div class="per">per week</div>
+            </div>
+            <div class="smallprint" id="p5_cycle">Billed bi-weekly: —</div>
+            <ul>
+              <li>5 scheduled visits per week</li>
               <li>Arrival notifications</li>
               <li>Video update + questionnaire each visit</li>
               <li>Weekly summary (optional)</li>
             </ul>
-            <div class="meta">Ideal for weekday consistency.</div>
+            <div class="meta">Weekday pricing shown. If any visits are on Sat/Sun, add the weekend premium below.</div>
             <div class="actions">
               <a class="btn primary" href="#contact">Choose 5x/week</a>
               <a class="btn" href="#addons">Add companion services</a>
@@ -773,27 +769,201 @@
           </div>
         </div>
 
+        <div class="calc" aria-label="Weekend premium calculator">
+          <h3>Weekend premium calculator</h3>
+          <div class="calc-grid">
+            <div class="field">
+              <div class="label">Plan</div>
+              <select class="select" id="calc_plan">
+                <option value="1">1 Visit / Week</option>
+                <option value="2">2 Visits / Week</option>
+                <option value="3" selected>3 Visits / Week</option>
+                <option value="5">5 Visits / Week</option>
+              </select>
+
+              <div class="label">Weekend visits (Sat/Sun)</div>
+              <select class="select" id="calc_weekend">
+                <option value="0">0 weekend visits</option>
+                <option value="1">1 weekend visit</option>
+                <option value="2">2 weekend visits</option>
+              </select>
+
+              <div class="smallprint">
+                Weekend visits are priced at <strong>+25%</strong> for that plan’s per-visit rate.
+                Choose how many of your weekly visits fall on Sat/Sun (max 2).
+              </div>
+            </div>
+
+            <div class="result">
+              <div class="small">Estimated total</div>
+              <div class="big" id="calc_week_total">$— / week</div>
+              <div class="small" id="calc_cycle_total">Billed bi-weekly: —</div>
+              <div class="small" style="margin-top:10px">
+                Weekday-only price for this plan: <span id="calc_weekday_base">$— / week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div style="margin-top:14px" class="grid-3">
           <div class="card">
-            <div class="badge"><span class="spark"></span> 2 Days / Week</div>
-            <h3>$179 / week</h3>
+            <div class="badge"><span class="spark"></span> 2 Visits / Week</div>
+            <h3><span id="p2_week">$—</span> / week</h3>
             <p>Two visits per week for stronger coverage without daily frequency.</p>
+            <div class="smallprint" id="p2_cycle">Billed bi-weekly: —</div>
           </div>
+
           <div class="card">
             <div class="badge purple"><span class="spark"></span> 7 Days / Week</div>
-            <h3>$499 / week</h3>
-            <p>Daily visits for maximum peace of mind (best for higher-need situations).</p>
+            <h3><span id="p7_week">$—</span> / week</h3>
+            <p>Daily visits for maximum peace of mind (includes weekends, no weekend premium).</p>
+            <div class="smallprint" id="p7_cycle">Billed bi-weekly: —</div>
           </div>
+
           <div class="card">
-            <div class="badge amber"><span class="spark"></span> Custom schedules</div>
-            <h3>Talk to us</h3>
-            <p>Need evenings, split visits, or multiple household members? We can scope a custom plan.</p>
+            <div class="badge amber"><span class="spark"></span> Billing policy</div>
+            <h3>Non-refundable once scheduled</h3>
+            <p>Plans are billed bi-weekly (2-week cycles). Visits can be rescheduled within the cycle with reasonable notice.</p>
+            <div class="smallprint">Exact reschedule windows can be defined in your service terms.</div>
           </div>
         </div>
 
         <p class="smallprint">
-          Prices shown are placeholders for marketing. In production, you can display local pricing by region, travel distance, and staffing availability.
+          Weekday plan pricing uses a 7% per-tier per-visit discount starting from $129/week for 1x/week.
+          Bi-weekly billing is calculated as weekly price × 2 and rounded to the nearest dollar.
         </p>
+
+        <script>
+          (function () {
+            const weeksPerCycle = 2;
+            const weekendPremiumMultiplier = 1.25;
+
+            const fmtMoney = (n) => {
+              const v = Math.round(n);
+              return "$" + v.toLocaleString("en-US");
+            };
+
+            const setPrice = (weekElId, cycleElId, weeklyPrice) => {
+              const weekEl = document.getElementById(weekElId);
+              const cycleEl = document.getElementById(cycleElId);
+              if (!weekEl || !cycleEl) return;
+              weekEl.textContent = fmtMoney(weeklyPrice);
+              cycleEl.textContent = "Billed bi-weekly: " + fmtMoney(weeklyPrice * weeksPerCycle);
+            };
+
+            const baseWeekly1 = 129;
+
+            const perVisit1 = baseWeekly1 / 1;
+            const perVisit2 = perVisit1 * (1 - 0.07);
+            const perVisit3 = perVisit2 * (1 - 0.07);
+            const perVisit5 = perVisit3 * (1 - 0.07);
+            const perVisit7 = perVisit5 * (1 - 0.07);
+
+            const weekly1 = perVisit1 * 1;
+            const weekly2 = perVisit2 * 2;
+            const weekly3 = perVisit3 * 3;
+            const weekly5 = perVisit5 * 5;
+            const weekly7 = perVisit7 * 7;
+
+            setPrice("p1_week", "p1_cycle", weekly1);
+            setPrice("p2_week", "p2_cycle", weekly2);
+            setPrice("p3_week", "p3_cycle", weekly3);
+            setPrice("p5_week", "p5_cycle", weekly5);
+            setPrice("p7_week", "p7_cycle", weekly7);
+
+            const planToPerVisit = {
+              1: perVisit1,
+              2: perVisit2,
+              3: perVisit3,
+              5: perVisit5
+            };
+
+            const planSelect = document.getElementById("calc_plan");
+            const weekendSelect = document.getElementById("calc_weekend");
+
+            const weekTotalEl = document.getElementById("calc_week_total");
+            const cycleTotalEl = document.getElementById("calc_cycle_total");
+            const weekdayBaseEl = document.getElementById("calc_weekday_base");
+
+            const clampWeekendOptions = () => {
+              const planDays = Number(planSelect.value);
+              const maxWeekend = Math.min(2, planDays);
+              const currentWeekend = Number(weekendSelect.value);
+
+              const options = Array.from(weekendSelect.options);
+              for (const opt of options) {
+                const v = Number(opt.value);
+                opt.disabled = v > maxWeekend;
+              }
+
+              if (currentWeekend > maxWeekend) {
+                weekendSelect.value = String(maxWeekend);
+              }
+            };
+
+            const updateCalc = () => {
+              clampWeekendOptions();
+
+              const planDays = Number(planSelect.value);
+              const weekendDays = Number(weekendSelect.value);
+              const weekdayDays = planDays - weekendDays;
+
+              const perVisit = planToPerVisit[planDays];
+
+              const weekdayOnlyWeekly = perVisit * planDays;
+              const totalWeekly = (weekdayDays * perVisit) + (weekendDays * perVisit * weekendPremiumMultiplier);
+
+              weekTotalEl.textContent = fmtMoney(totalWeekly) + " / week";
+              cycleTotalEl.textContent = "Billed bi-weekly: " + fmtMoney(totalWeekly * weeksPerCycle);
+              weekdayBaseEl.textContent = fmtMoney(weekdayOnlyWeekly) + " / week";
+            };
+
+            planSelect.addEventListener("change", updateCalc);
+            weekendSelect.addEventListener("change", updateCalc);
+
+            updateCalc();
+          })();
+        </script>
+      </div>
+    </section>
+
+    <section id="service-area">
+      <div class="container">
+        <h2 class="section-title">Service area (initial launch)</h2>
+        <p class="section-lead">
+          We’re starting on the Main Line in Pennsylvania to keep response times fast and scheduling predictable.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge"><span class="spark"></span> Main Line core</div>
+            <h3>Where we’re starting</h3>
+            <p>Wayne, Villanova, Bryn Mawr, Berwyn, Malvern, King of Prussia, Bridgeport, and Radnor-area neighborhoods.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge purple"><span class="spark"></span> Expansion next</div>
+            <h3>Nearby by demand</h3>
+            <p>We’ll expand outward based on waitlist demand and staffing coverage.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge amber"><span class="spark"></span> Not sure?</div>
+            <h3>Ask anyway</h3>
+            <p>Join the waitlist with your ZIP code and we’ll confirm coverage as we open new zones.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="callout">
+          <div>
+            <h3>Want DailyLoved in your town?</h3>
+            <p>Tell us your location and preferred schedule—we’ll prioritize new areas with the most demand.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact">Join the waitlist</a>
+            <a class="btn" href="#pricing">View plans</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -820,7 +990,7 @@
           <div class="addon">
             <div class="top">
               <h3>Errands & grocery companion</h3>
-              <div class="tag">$65 / hour</div>
+              <div class="tag">$100 / hour</div>
             </div>
             <p>
               Grocery store runs, simple errands, or helping coordinate delivery orders.
@@ -832,7 +1002,7 @@
           <div class="addon">
             <div class="top">
               <h3>Extended visit</h3>
-              <div class="tag">+$30 / 30 min</div>
+              <div class="tag">+$50 / 30 min</div>
             </div>
             <p>
               Add extra time to any scheduled check-in for longer conversation, list-making, or coordination tasks.
@@ -843,7 +1013,7 @@
           <div class="addon">
             <div class="top">
               <h3>Family summary report</h3>
-              <div class="tag">$15 / week</div>
+              <div class="tag">Free</div>
             </div>
             <p>
               A simple weekly roll-up of mood, appetite, hydration notes, and key observations across visits.
@@ -861,69 +1031,33 @@
 
         <div class="faq">
           <details>
-            <summary>
-              Is DailyLoved medical care?
-              <span class="chev">⌄</span>
-            </summary>
-            <p>
-              No. DailyLoved is a non-medical companionship and check-in service. Companions do not provide medical treatment, diagnosis,
-              medication administration, wound care, or clinical interventions.
-            </p>
+            <summary>Is DailyLoved medical care?<span class="chev">⌄</span></summary>
+            <p>No. DailyLoved is a non-medical companionship and check-in service. Companions do not provide medical treatment, diagnosis, medication administration, wound care, or clinical interventions.</p>
           </details>
 
           <details>
-            <summary>
-              Can you ask about medications?
-              <span class="chev">⌄</span>
-            </summary>
-            <p>
-              A safe approach is to ask a non-clinical question like “Did you take your meds as prescribed today?” and record the person’s response,
-              without handling medications or making recommendations. You should also consult counsel for your jurisdiction and carefully phrase
-              the questionnaire to stay within non-medical scope.
-            </p>
+            <summary>Can you ask about medications?<span class="chev">⌄</span></summary>
+            <p>We will ask questions like “Did you take your meds as prescribed today?” and record the person’s response, without handling medications or making recommendations.</p>
           </details>
 
           <details>
-            <summary>
-              What if something seems wrong during a visit?
-              <span class="chev">⌄</span>
-            </summary>
-            <p>
-              You can define escalation rules (notify family, a neighbor, or an emergency contact). If an urgent emergency is suspected,
-              the companion should follow your defined emergency protocol and local emergency guidance.
-            </p>
+            <summary>What if something seems wrong during a visit?<span class="chev">⌄</span></summary>
+            <p>You can define escalation rules (notify family, a neighbor, or an emergency contact). If an urgent emergency is suspected, the companion should follow your defined emergency protocol and local emergency guidance.</p>
           </details>
 
           <details>
-            <summary>
-              How do notifications work?
-              <span class="chev">⌄</span>
-            </summary>
-            <p>
-              The companion taps “Arrived” in the app, triggering an immediate alert. After the visit, the video and questionnaire are uploaded,
-              and you receive another notification when they’re available.
-            </p>
+            <summary>How do notifications work?<span class="chev">⌄</span></summary>
+            <p>The companion taps “Arrived” in the app, triggering an immediate alert. After the visit, the video and questionnaire are uploaded, and you receive another notification when they’re available.</p>
           </details>
 
           <details>
-            <summary>
-              Can you help with groceries?
-              <span class="chev">⌄</span>
-            </summary>
-            <p>
-              Yes—during the visit, the companion can help gather a grocery list and place an online order for delivery.
-              Purchases and delivery fees are paid directly to the merchant/service.
-            </p>
+            <summary>Can you help with groceries?<span class="chev">⌄</span></summary>
+            <p>Yes, during the visit, the companion can help gather a grocery list and place an online order for delivery. Purchases and delivery fees are paid directly to the merchant/service.</p>
           </details>
 
           <details>
-            <summary>
-              What areas do you serve?
-              <span class="chev">⌄</span>
-            </summary>
-            <p>
-              Initially, availability will be region-based. Join the waitlist and tell us your city—launch priority will follow demand and staffing.
-            </p>
+            <summary>What areas do you serve?<span class="chev">⌄</span></summary>
+            <p>We’re launching on the Main Line in Pennsylvania (Wayne, Villanova, Bryn Mawr, Berwyn, Malvern, King of Prussia, Bridgeport, and nearby). Join the waitlist with your ZIP code and we’ll confirm coverage as we open new zones.</p>
           </details>
         </div>
       </div>
@@ -939,20 +1073,21 @@
               and onboarding steps.
             </p>
             <div class="smallprint">
-              Tip: Replace the form action with your email capture provider (Mailchimp, ConvertKit, Buttondown, etc.) when ready.
+
             </div>
           </div>
 
           <div style="min-width: min(420px, 100%);">
-            <form class="form" action="mailto:hello@dailyloved.com" method="post" enctype="text/plain">
+            <form id="early-access-form" class="form" action="https://formspree.io/f/xeeoyjql" method="POST">
               <input class="input" type="text" name="name" placeholder="Your name" aria-label="Your name" required />
               <input class="input" type="email" name="email" placeholder="Email address" aria-label="Email address" required />
-              <input class="input" type="text" name="city" placeholder="City / Region" aria-label="City or Region" />
+              <input class="input" type="text" name="city_zip" placeholder="City / ZIP (e.g., Radnor 19087)" aria-label="City or ZIP" />
               <button class="btn primary" type="submit">Request early access</button>
+
+              <input type="hidden" name="_subject" value="DailyLoved — New early access request" />
+              <input type="hidden" name="_redirect" value="https://dailyloved.com/thanks.html" />
             </form>
-            <p class="micro">
-              By submitting, you agree to receive updates about availability and onboarding. Unsubscribe anytime.
-            </p>
+            <p class="micro">By submitting, you agree to receive updates about availability and onboarding. Unsubscribe anytime.</p>
           </div>
         </div>
       </div>
@@ -981,6 +1116,7 @@
           <div class="mini-links" aria-label="Footer links">
             <a href="#how">How it works</a>
             <a href="#pricing">Pricing</a>
+            <a href="#service-area">Service area</a>
             <a href="#addons">Add-ons</a>
             <a href="#faq">FAQ</a>
             <a href="mailto:hello@dailyloved.com">Email</a>
@@ -992,6 +1128,52 @@
 
   <script>
     document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
+
+  <script>
+    (function () {
+      const form = document.getElementById("early-access-form");
+      if (!form) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending…";
+        }
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok) {
+            window.location.href = "./thanks.html";
+            return;
+          }
+
+          let data = null;
+          try { data = await res.json(); } catch {}
+          const msg =
+            (data && data.errors && data.errors.length && data.errors[0].message) ||
+            "Sorry — there was a problem submitting the form. Please try again.";
+
+          alert(msg);
+        } catch {
+          alert("Network error — please check your connection and try again.");
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Request early access";
+          }
+        }
+      });
+    })();
   </script>
 </body>
 </html>
