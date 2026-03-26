@@ -4,10 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
-  <title>DailyLoved — In-Person Check-Ins for Peace of Mind</title>
-  <meta name="description" content="DailyLoved provides in-person check-ins for loved ones, with arrival confirmations, short video updates, and a simple wellness questionnaire—on a schedule you choose." />
-  <meta property="og:title" content="DailyLoved — In-Person Check-Ins for Peace of Mind" />
-  <meta property="og:description" content="In-person check-ins with arrival notifications, short video updates, and a simple wellness questionnaire—on a schedule you choose." />
+  <title>DailyLoved | In-Home Check-Ins for Aging Parents on the Main Line</title>
+  <meta
+    name="description"
+    content="DailyLoved provides in-home, non-medical check-ins for aging parents across the Main Line. We visit, spend time with your loved one, and send you real updates after every visit."
+  />
+  <meta property="og:title" content="DailyLoved | In-Home Check-Ins for Aging Parents on the Main Line" />
+  <meta
+    property="og:description"
+    content="We visit your loved one, spend time with them, and send you updates after every check-in."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dailyloved.com/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -24,7 +30,6 @@
       --brand: #7c3aed;
       --brand-2:#22c55e;
       --warn:#f59e0b;
-      --danger:#ef4444;
       --shadow: 0 24px 70px rgba(0,0,0,.45);
       --radius: 18px;
       --radius-lg: 26px;
@@ -152,7 +157,7 @@
     .hero{padding: 52px 0 28px}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.1fr .9fr;
       gap: 22px;
       align-items: stretch;
     }
@@ -165,8 +170,8 @@
     .lead{
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.55;
-      max-width: 60ch;
+      line-height: 1.6;
+      max-width: 62ch;
       margin: 0 0 18px;
     }
     .hero-card{
@@ -217,12 +222,14 @@
     }
     .input::placeholder{color: rgba(255,255,255,.42)}
     .micro{color: rgba(255,255,255,.55); font-size: 12px; line-height: 1.4; margin: 10px 0 0}
+    .fine{color: rgba(255,255,255,.56); font-size: 12px; line-height: 1.45}
 
     section{padding: 28px 0}
     .section-title{font-size: 20px; margin: 0 0 10px; letter-spacing: -.2px}
     .section-lead{color: var(--muted); margin:0 0 18px; line-height:1.55}
 
     .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px}
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px}
     .card{
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
@@ -311,7 +318,6 @@
       position:absolute;
       top: 14px;
       right: 14px;
-      left: auto;
       padding: 8px 10px;
       border-radius: 999px;
       font-size: 12px;
@@ -386,6 +392,24 @@
       color: rgba(255,255,255,.62);
       font-size: 12px;
       line-height:1.4;
+    }
+
+    .quote-card{
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      padding: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .quote-card h3{margin:0 0 10px; font-size:16px}
+    .quote-box{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+      color: rgba(255,255,255,.86);
+      line-height: 1.65;
+      font-size: 14px;
     }
 
     .addons{
@@ -524,6 +548,7 @@
       .steps{grid-template-columns: 1fr 1fr}
       .pricing{grid-template-columns: 1fr}
       .grid-3{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1fr}
       .addons{grid-template-columns: 1fr}
       .faq{grid-template-columns: 1fr}
       .calc-grid{grid-template-columns: 1fr}
@@ -544,7 +569,7 @@
         <a class="brand" href="#top" aria-label="DailyLoved Home">
           <span class="logo" aria-hidden="true"></span>
           <span>DailyLoved</span>
-          <span style="font-weight:650;color:rgba(255,255,255,.55);font-size:12px">dailyloved.com</span>
+          <span style="font-weight:650;color:rgba(255,255,255,.55);font-size:12px">Main Line, PA</span>
         </a>
 
         <nav class="navlinks" aria-label="Primary">
@@ -558,7 +583,7 @@
 
         <div style="display:flex; gap:10px; align-items:center;">
           <a class="btn small ghost" href="#pricing">View pricing</a>
-          <a class="btn small primary" href="#contact">Get started</a>
+          <a class="btn small primary" href="#contact">Schedule a call</a>
         </div>
       </div>
     </div>
@@ -569,59 +594,61 @@
       <div class="container">
         <div class="hero-grid">
           <div class="stack">
-            <div class="pill"><span class="dot"></span> In-person check-ins for peace of mind — on your schedule</div>
-            <h1 class="h1">A trusted human check-in for your loved one — with proof, updates, and accountability.</h1>
+            <div class="pill"><span class="dot"></span> Serving Wayne, Villanova, Bryn Mawr, Radnor, Berwyn, Malvern, and nearby Main Line communities</div>
+            <h1 class="h1">We check in on your aging parent so you don’t have to worry.</h1>
             <p class="lead">
-              DailyLoved sends a trained companion to visit your loved one at intervals you choose.
-              You get an arrival notification, a short video update, and a quick wellness questionnaire—without crossing into medical care.
+              DailyLoved provides in-home, non-medical check-ins for older adults across the Main Line.
+              We visit, spend real time with your loved one, and send you a clear update after every visit so you know how they are doing.
             </p>
 
             <div class="cta-row">
-              <a class="btn primary" href="#contact"><span class="icon" aria-hidden="true">✅</span>Start a plan</a>
+              <a class="btn primary" href="#contact"><span class="icon" aria-hidden="true">✅</span>Schedule a call</a>
               <a class="btn" href="#how"><span class="icon" aria-hidden="true">▶</span>See how it works</a>
-              <a class="btn green" href="#addons"><span class="icon" aria-hidden="true">➕</span>Add companion services</a>
+              <a class="btn green" href="#pricing"><span class="icon" aria-hidden="true">💬</span>View plans</a>
             </div>
 
             <div class="kpis" aria-label="Highlights">
-              <div class="kpi"><div class="num">30 minutes</div><div class="lbl">per visit included</div></div>
-              <div class="kpi"><div class="num">Arrival alerts</div><div class="lbl">instant notifications</div></div>
-              <div class="kpi"><div class="num">Video + questionnaire</div><div class="lbl">a simple weekly record</div></div>
+              <div class="kpi"><div class="num">30 minutes</div><div class="lbl">included with every visit</div></div>
+              <div class="kpi"><div class="num">Real updates</div><div class="lbl">after each check-in</div></div>
+              <div class="kpi"><div class="num">Local coverage</div><div class="lbl">Main Line, Pennsylvania</div></div>
             </div>
 
             <p class="micro">
-              DailyLoved is a companionship and check-in service. It does not provide medical treatment, diagnosis, or hands-on clinical care.
+              DailyLoved is a companionship and check-in service. We do not provide medical treatment, diagnosis, medication administration, or emergency services.
             </p>
           </div>
 
-          <div class="hero-card" aria-label="Preview">
+          <div class="hero-card" aria-label="Example family update">
             <div class="hero-card-inner">
-              <div class="badge purple"><span class="spark"></span> What you receive after each visit</div>
-              <div class="stack">
-                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
-                  <h3>1) “Arrived” notification</h3>
-                  <p>The companion taps Arrived in the app. You’re immediately notified.</p>
-                </div>
-                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
-                  <h3>2) Short video update</h3>
-                  <p>A quick video upload so you can see and hear how they’re doing.</p>
-                </div>
-                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
-                  <h3>3) Simple questionnaire</h3>
-                  <p>Mood, appetite, hydration, and notes—delivered to your app & web dashboard.</p>
-                </div>
+              <div class="badge purple"><span class="spark"></span> Example update after a visit</div>
 
-                <div class="note">
-                  Optional: During the visit, companions can help capture a grocery list and place an online delivery order (delivery fees paid separately to the merchant).
+              <div class="quote-card">
+                <h3>What a family receives</h3>
+                <div class="quote-box">
+                  “Stopped by at 10:30am. She was in good spirits, had breakfast, and we chatted for a bit about her garden.
+                  She said she slept well last night and seemed comfortable. Everything looked okay during the visit.
+                  I’ll check in again Thursday.”
                 </div>
+              </div>
+
+              <div class="grid-2" style="margin-top:14px;">
+                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
+                  <h3>Arrival confirmation</h3>
+                  <p>You know when the visit begins.</p>
+                </div>
+                <div class="card" style="margin:0; background: rgba(255,255,255,.04);">
+                  <h3>Simple observations</h3>
+                  <p>Mood, appetite, hydration, and general notes.</p>
+                </div>
+              </div>
+
+              <div class="note" style="margin-top:14px;">
+                Currently accepting a limited number of families during initial launch on the Main Line.
               </div>
 
               <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-                <a class="btn small primary" href="#contact">Request early access</a>
-                <a class="btn small" href="#pricing">See pricing tiers</a>
-              </div>
-
-              <div class="smallprint">
-                Video and questionnaire availability notifications are sent after upload is completed.
+                <a class="btn small primary" href="#contact">Check availability</a>
+                <a class="btn small" href="#pricing">See pricing</a>
               </div>
             </div>
           </div>
@@ -632,24 +659,24 @@
     <section id="how">
       <div class="container">
         <h2 class="section-title">How it works</h2>
-        <p class="section-lead">Pick a schedule, receive verified check-ins, and stay informed without managing logistics.</p>
+        <p class="section-lead">Simple, local, and easy to understand.</p>
 
         <div class="steps">
           <div class="step">
-            <h4>Choose a plan</h4>
-            <p>Select 1, 2, 3, 5, or 7 days a week. You can add notes (preferred times, entry instructions, etc.).</p>
+            <h4>Choose a schedule</h4>
+            <p>Pick the number of weekly visits that makes sense for your family.</p>
           </div>
           <div class="step">
-            <h4>Local companion visits</h4>
-            <p>We assign companions by neighborhood to reduce travel time and increase reliability. Familiar faces build trust over time.</p>
+            <h4>We visit your loved one</h4>
+            <p>A DailyLoved companion stops by for a friendly, non-medical in-home check-in.</p>
           </div>
           <div class="step">
-            <h4>Arrived + updates</h4>
-            <p>You get an arrival notification, then a video update and questionnaire results once submitted.</p>
+            <h4>You receive an update</h4>
+            <p>After the visit, we send a clear summary so you know how things went.</p>
           </div>
           <div class="step">
-            <h4>Escalation rules</h4>
-            <p>Set contact preferences: notify family, neighbor, or emergency contacts if something seems concerning.</p>
+            <h4>We stay consistent</h4>
+            <p>Families get reliable check-ins and familiar faces over time whenever possible.</p>
           </div>
         </div>
       </div>
@@ -659,35 +686,34 @@
       <div class="container">
         <h2 class="section-title">What’s included in every visit</h2>
         <p class="section-lead">
-          Each check-in focuses on companionship, observation, and communication—helpful data without medical intervention.
+          Each visit is designed to reduce uncertainty for families while giving your loved one real human connection.
         </p>
 
         <div class="grid-3">
           <div class="card">
-            <div class="badge"><span class="spark"></span> 30-minute in-person visit</div>
-            <h3>Human connection</h3>
-            <p>Friendly conversation and a real presence—not a robot, not a phone call. Helps reduce isolation and keeps you in the loop.</p>
+            <div class="badge"><span class="spark"></span> In-person visit</div>
+            <h3>Real human presence</h3>
+            <p>Not a phone call. Not an app notification. A real person stopping by, spending time, and checking in.</p>
           </div>
 
           <div class="card">
-            <div class="badge purple"><span class="spark"></span> Video update</div>
-            <h3>See how they’re doing</h3>
-            <p>A short video is uploaded after the visit. You can review anytime in the mobile app or web dashboard.</p>
+            <div class="badge purple"><span class="spark"></span> Family update</div>
+            <h3>Clear communication</h3>
+            <p>You receive an update after each visit with observations and notes, so you are not left wondering how things are going.</p>
           </div>
 
           <div class="card">
-            <div class="badge amber"><span class="spark"></span> Quick questionnaire</div>
-            <h3>Simple wellness snapshot</h3>
-            <p>Mood, eating, hydration, general notes. You get consistent information across visits—easy to track over time.</p>
+            <div class="badge amber"><span class="spark"></span> Non-medical support</div>
+            <h3>Companionship and observation</h3>
+            <p>We focus on conversation, presence, and practical check-ins without crossing into licensed medical care.</p>
           </div>
         </div>
 
         <div style="margin-top:14px" class="callout">
           <div>
-            <h3>Local companions. Familiar faces. Consistent check-ins.</h3>
+            <h3>Built for families who cannot be there every day</h3>
             <p>
-              DailyLoved assigns companions by neighborhood—so your loved one sees a familiar face and your schedule stays reliable.
-              Shorter travel time means less rushing and better visits.
+              DailyLoved is for adult children and families who want more peace of mind and more frequent visibility into how a parent or loved one is doing.
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -700,13 +726,30 @@
 
     <section id="pricing">
       <div class="container">
-        <h2 class="section-title">Pricing (weekly, billed bi-weekly)</h2>
+        <h2 class="section-title">Pricing</h2>
         <p class="section-lead">
-          Listed prices are for <strong>weekday visits</strong> (Mon–Fri). Weekend visits carry a <strong>+25% premium per weekend visit</strong>.
+          Weekly pricing for weekday visits. Weekend visits carry a 25% premium per weekend visit.
           The 7-day plan includes weekends with no additional weekend premium.
         </p>
 
         <div class="pricing" role="list">
+          <div class="plan" role="listitem">
+            <h3>2 Visits / Week</h3>
+            <div class="price">
+              <div class="amt" id="p2_week">$—</div>
+              <div class="per">per week</div>
+            </div>
+            <div class="smallprint" id="p2_cycle">Billed bi-weekly: —</div>
+            <ul>
+              <li>2 scheduled in-home visits per week</li>
+              <li>Post-visit family updates</li>
+              <li>Great for lighter ongoing coverage</li>
+            </ul>
+            <div class="actions">
+              <a class="btn primary" href="#contact">Ask about 2x/week</a>
+            </div>
+          </div>
+
           <div class="plan popular" role="listitem">
             <div class="ribbon">Most popular</div>
             <h3>3 Visits / Week</h3>
@@ -716,35 +759,12 @@
             </div>
             <div class="smallprint" id="p3_cycle">Billed bi-weekly: —</div>
             <ul>
-              <li>3 scheduled visits per week (30 min each)</li>
-              <li>Arrival notifications</li>
-              <li>Video update + questionnaire each visit</li>
-              <li>Priority scheduling windows</li>
+              <li>3 scheduled in-home visits per week</li>
+              <li>Post-visit family updates</li>
+              <li>Strong peace-of-mind coverage</li>
             </ul>
-            <div class="meta">Weekday pricing shown. Add weekend visits below to see the premium.</div>
             <div class="actions">
-              <a class="btn primary" href="#contact">Choose 3x/week</a>
-              <a class="btn ghost" href="#faq">What’s included?</a>
-            </div>
-          </div>
-
-          <div class="plan" role="listitem">
-            <h3>1 Visit / Week</h3>
-            <div class="price">
-              <div class="amt" id="p1_week">$—</div>
-              <div class="per">per week</div>
-            </div>
-            <div class="smallprint" id="p1_cycle">Billed bi-weekly: —</div>
-            <ul>
-              <li>1 scheduled in-person visit per week (30 min)</li>
-              <li>Arrival notification</li>
-              <li>Video update + questionnaire</li>
-              <li>Grocery list help + online order placement</li>
-            </ul>
-            <div class="meta">Weekday pricing shown. Weekend visit is +25%.</div>
-            <div class="actions">
-              <a class="btn primary" href="#contact">Choose 1x/week</a>
-              <a class="btn" href="#addons">See add-ons</a>
+              <a class="btn primary" href="#contact">Ask about 3x/week</a>
             </div>
           </div>
 
@@ -756,15 +776,12 @@
             </div>
             <div class="smallprint" id="p5_cycle">Billed bi-weekly: —</div>
             <ul>
-              <li>5 scheduled visits per week</li>
-              <li>Arrival notifications</li>
-              <li>Video update + questionnaire each visit</li>
-              <li>Weekly summary (optional)</li>
+              <li>5 scheduled in-home visits per week</li>
+              <li>Post-visit family updates</li>
+              <li>Best for frequent weekday coverage</li>
             </ul>
-            <div class="meta">Weekday pricing shown. If any visits are on Sat/Sun, add the weekend premium below.</div>
             <div class="actions">
-              <a class="btn primary" href="#contact">Choose 5x/week</a>
-              <a class="btn" href="#addons">Add companion services</a>
+              <a class="btn primary" href="#contact">Ask about 5x/week</a>
             </div>
           </div>
         </div>
@@ -789,8 +806,7 @@
               </select>
 
               <div class="smallprint">
-                Weekend visits are priced at <strong>+25%</strong> for that plan’s per-visit rate.
-                Choose how many of your weekly visits fall on Sat/Sun (max 2).
+                Weekend visits are priced at 25% above that plan’s per-visit rate.
               </div>
             </div>
 
@@ -799,7 +815,7 @@
               <div class="big" id="calc_week_total">$— / week</div>
               <div class="small" id="calc_cycle_total">Billed bi-weekly: —</div>
               <div class="small" style="margin-top:10px">
-                Weekday-only price for this plan: <span id="calc_weekday_base">$— / week</span>
+                Weekday-only price: <span id="calc_weekday_base">$— / week</span>
               </div>
             </div>
           </div>
@@ -807,30 +823,29 @@
 
         <div style="margin-top:14px" class="grid-3">
           <div class="card">
-            <div class="badge"><span class="spark"></span> 2 Visits / Week</div>
-            <h3><span id="p2_week">$—</span> / week</h3>
-            <p>Two visits per week for stronger coverage without daily frequency.</p>
-            <div class="smallprint" id="p2_cycle">Billed bi-weekly: —</div>
+            <div class="badge"><span class="spark"></span> 1 Visit / Week</div>
+            <h3><span id="p1_week">$—</span> / week</h3>
+            <p>A simple weekly check-in for lighter support needs.</p>
+            <div class="smallprint" id="p1_cycle">Billed bi-weekly: —</div>
           </div>
 
           <div class="card">
             <div class="badge purple"><span class="spark"></span> 7 Days / Week</div>
             <h3><span id="p7_week">$—</span> / week</h3>
-            <p>Daily visits for maximum peace of mind (includes weekends, no weekend premium).</p>
+            <p>Daily visits for maximum peace of mind. Includes weekends.</p>
             <div class="smallprint" id="p7_cycle">Billed bi-weekly: —</div>
           </div>
 
           <div class="card">
-            <div class="badge amber"><span class="spark"></span> Billing policy</div>
-            <h3>Non-refundable once scheduled</h3>
-            <p>Plans are billed bi-weekly (2-week cycles). Visits can be rescheduled within the cycle with reasonable notice.</p>
-            <div class="smallprint">Exact reschedule windows can be defined in your service terms.</div>
+            <div class="badge amber"><span class="spark"></span> Billing</div>
+            <h3>Prepaid on a bi-weekly cycle</h3>
+            <p>Visits can be rescheduled within the billing cycle with reasonable notice.</p>
+            <div class="smallprint">Specific service terms can be finalized during onboarding.</div>
           </div>
         </div>
 
         <p class="smallprint">
-          Weekday plan pricing uses a 7% per-tier per-visit discount starting from $129/week for 1x/week.
-          Bi-weekly billing is calculated as weekly price × 2 and rounded to the nearest dollar.
+          Pricing uses your existing weekly structure and bi-weekly billing model.
         </p>
 
         <script>
@@ -929,39 +944,28 @@
 
     <section id="service-area">
       <div class="container">
-        <h2 class="section-title">Service area (initial launch)</h2>
+        <h2 class="section-title">Service area</h2>
         <p class="section-lead">
-          We’re starting on the Main Line in Pennsylvania to keep response times fast and scheduling predictable.
+          We are starting on the Main Line in Pennsylvania to keep scheduling reliable and visits local.
         </p>
 
         <div class="grid-3">
           <div class="card">
             <div class="badge"><span class="spark"></span> Main Line core</div>
-            <h3>Where we’re starting</h3>
-            <p>Wayne, Villanova, Bryn Mawr, Berwyn, Malvern, King of Prussia, Bridgeport, and Radnor-area neighborhoods.</p>
+            <h3>Where we currently serve</h3>
+            <p>Wayne, Villanova, Bryn Mawr, Berwyn, Malvern, Radnor, King of Prussia, Bridgeport, and nearby communities.</p>
           </div>
 
           <div class="card">
-            <div class="badge purple"><span class="spark"></span> Expansion next</div>
-            <h3>Nearby by demand</h3>
-            <p>We’ll expand outward based on waitlist demand and staffing coverage.</p>
+            <div class="badge purple"><span class="spark"></span> Local first</div>
+            <h3>Why we start close</h3>
+            <p>Shorter travel times mean more reliable visits, less rushing, and more consistency for families.</p>
           </div>
 
           <div class="card">
-            <div class="badge amber"><span class="spark"></span> Not sure?</div>
+            <div class="badge amber"><span class="spark"></span> Outside the area?</div>
             <h3>Ask anyway</h3>
-            <p>Join the waitlist with your ZIP code and we’ll confirm coverage as we open new zones.</p>
-          </div>
-        </div>
-
-        <div style="margin-top:14px" class="callout">
-          <div>
-            <h3>Want DailyLoved in your town?</h3>
-            <p>Tell us your location and preferred schedule—we’ll prioritize new areas with the most demand.</p>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="#contact">Join the waitlist</a>
-            <a class="btn" href="#pricing">View plans</a>
+            <p>Reach out with your city or ZIP code and we will confirm whether we can support your area.</p>
           </div>
         </div>
       </div>
@@ -971,7 +975,7 @@
       <div class="container">
         <h2 class="section-title">Add-on companion services</h2>
         <p class="section-lead">
-          Need more than a check-in? Add companion time for appointments, errands, and other non-medical assistance.
+          For families who need more support than a standard check-in.
         </p>
 
         <div class="addons">
@@ -981,22 +985,20 @@
               <div class="tag">$100 / hour</div>
             </div>
             <p>
-              Companion support from the time of arrival at home until return from the appointment.
-              No medical advice or hands-on care—purely assistance and companionship.
+              Companion support from home departure until return from the appointment.
             </p>
-            <div class="fine">Travel time is included in the hourly window. Any medical decisions remain with the patient and provider.</div>
+            <div class="fine">Non-medical only. No treatment, advice, or clinical care.</div>
           </div>
 
           <div class="addon">
             <div class="top">
-              <h3>Errands & grocery companion</h3>
+              <h3>Errands and grocery companion</h3>
               <div class="tag">$100 / hour</div>
             </div>
             <p>
-              Grocery store runs, simple errands, or helping coordinate delivery orders.
-              Great for weekly household needs and reducing burden on family.
+              Help with errands, grocery runs, or coordinating delivery orders.
             </p>
-            <div class="fine">Merchandise, delivery fees, and tips are paid directly to the merchant/service.</div>
+            <div class="fine">Merchandise, delivery fees, and tips are paid separately to the merchant or service.</div>
           </div>
 
           <div class="addon">
@@ -1005,20 +1007,20 @@
               <div class="tag">+$50 / 30 min</div>
             </div>
             <p>
-              Add extra time to any scheduled check-in for longer conversation, list-making, or coordination tasks.
+              Add more time for conversation, list-making, or practical coordination.
             </p>
-            <div class="fine">Subject to availability and scheduling windows.</div>
+            <div class="fine">Subject to scheduling availability.</div>
           </div>
 
           <div class="addon">
             <div class="top">
-              <h3>Family summary report</h3>
+              <h3>Weekly family summary</h3>
               <div class="tag">Free</div>
             </div>
             <p>
-              A simple weekly roll-up of mood, appetite, hydration notes, and key observations across visits.
+              A simple roll-up of observations from the week across multiple visits.
             </p>
-            <div class="fine">Generated from companion entries and submitted media—no medical conclusions.</div>
+            <div class="fine">Observational only. No medical conclusions.</div>
           </div>
         </div>
       </div>
@@ -1027,37 +1029,37 @@
     <section id="faq">
       <div class="container">
         <h2 class="section-title">FAQ</h2>
-        <p class="section-lead">Clear boundaries, practical expectations, and what we do (and don’t) do.</p>
+        <p class="section-lead">What families usually want to know first.</p>
 
         <div class="faq">
           <details>
             <summary>Is DailyLoved medical care?<span class="chev">⌄</span></summary>
-            <p>No. DailyLoved is a non-medical companionship and check-in service. Companions do not provide medical treatment, diagnosis, medication administration, wound care, or clinical interventions.</p>
+            <p>No. DailyLoved is a non-medical companionship and check-in service. We do not provide medical treatment, diagnosis, medication administration, wound care, or clinical interventions.</p>
           </details>
 
           <details>
-            <summary>Can you ask about medications?<span class="chev">⌄</span></summary>
-            <p>We will ask questions like “Did you take your meds as prescribed today?” and record the person’s response, without handling medications or making recommendations.</p>
+            <summary>What happens during a visit?<span class="chev">⌄</span></summary>
+            <p>A companion visits your loved one, spends time with them, observes how they seem to be doing, and sends you a follow-up update afterward.</p>
+          </details>
+
+          <details>
+            <summary>Can you help with medications?<span class="chev">⌄</span></summary>
+            <p>We do not administer or handle medications. We can note what someone tells us about whether they took them, but all medication decisions and administration remain with the individual, family, or licensed provider.</p>
           </details>
 
           <details>
             <summary>What if something seems wrong during a visit?<span class="chev">⌄</span></summary>
-            <p>You can define escalation rules (notify family, a neighbor, or an emergency contact). If an urgent emergency is suspected, the companion should follow your defined emergency protocol and local emergency guidance.</p>
-          </details>
-
-          <details>
-            <summary>How do notifications work?<span class="chev">⌄</span></summary>
-            <p>The companion taps “Arrived” in the app, triggering an immediate alert. After the visit, the video and questionnaire are uploaded, and you receive another notification when they’re available.</p>
-          </details>
-
-          <details>
-            <summary>Can you help with groceries?<span class="chev">⌄</span></summary>
-            <p>Yes, during the visit, the companion can help gather a grocery list and place an online order for delivery. Purchases and delivery fees are paid directly to the merchant/service.</p>
+            <p>We will follow the contact and escalation instructions you provide during onboarding. In a suspected emergency, local emergency services should be contacted immediately.</p>
           </details>
 
           <details>
             <summary>What areas do you serve?<span class="chev">⌄</span></summary>
-            <p>We’re launching on the Main Line in Pennsylvania (Wayne, Villanova, Bryn Mawr, Berwyn, Malvern, King of Prussia, Bridgeport, and nearby). Join the waitlist with your ZIP code and we’ll confirm coverage as we open new zones.</p>
+            <p>We are launching on the Main Line in Pennsylvania, including Wayne, Villanova, Bryn Mawr, Berwyn, Malvern, Radnor, King of Prussia, Bridgeport, and nearby areas.</p>
+          </details>
+
+          <details>
+            <summary>How quickly can someone start?<span class="chev">⌄</span></summary>
+            <p>Availability depends on your location and preferred schedule. Reach out and we will let you know what openings we have.</p>
           </details>
         </div>
       </div>
@@ -1067,27 +1069,29 @@
       <div class="container">
         <div class="callout">
           <div>
-            <h3>Get early access + launch updates</h3>
+            <h3>Talk with us about your family’s needs</h3>
             <p>
-              Building the iOS, Android, and web dashboard now. Leave your email and we’ll reach out with availability, pricing in your area,
-              and onboarding steps.
+              Tell us a little about your loved one, your location, and how often you want visits.
+              We will follow up about availability and next steps.
             </p>
             <div class="smallprint">
-
+              Serving families across the Main Line. Limited availability during initial launch.
             </div>
           </div>
 
-          <div style="min-width: min(420px, 100%);">
+          <div style="min-width: min(480px, 100%);">
             <form id="early-access-form" class="form" action="https://formspree.io/f/xeeoyjql" method="POST">
               <input class="input" type="text" name="name" placeholder="Your name" aria-label="Your name" required />
               <input class="input" type="email" name="email" placeholder="Email address" aria-label="Email address" required />
-              <input class="input" type="text" name="city_zip" placeholder="City / ZIP (e.g., Radnor 19087)" aria-label="City or ZIP" />
-              <button class="btn primary" type="submit">Request early access</button>
+              <input class="input" type="text" name="phone" placeholder="Phone number" aria-label="Phone number" />
+              <input class="input" type="text" name="city_zip" placeholder="City / ZIP (e.g., Wayne 19087)" aria-label="City or ZIP" />
+              <input class="input" type="text" name="schedule" placeholder="Preferred schedule (e.g., 3 visits/week)" aria-label="Preferred schedule" />
+              <button class="btn primary" type="submit">Request a callback</button>
 
-              <input type="hidden" name="_subject" value="DailyLoved — New early access request" />
+              <input type="hidden" name="_subject" value="DailyLoved — New lead" />
               <input type="hidden" name="_redirect" value="https://dailyloved.com/thanks.html" />
             </form>
-            <p class="micro">By submitting, you agree to receive updates about availability and onboarding. Unsubscribe anytime.</p>
+            <p class="micro">By submitting, you agree to receive a follow-up about availability and onboarding.</p>
           </div>
         </div>
       </div>
@@ -1101,7 +1105,7 @@
               <span class="logo" aria-hidden="true" style="width:30px;height:30px;border-radius:11px"></span>
               <div>
                 <div style="font-weight:800; color: rgba(255,255,255,.88)">DailyLoved</div>
-                <div style="color: rgba(255,255,255,.55); font-size:12px;">In-person check-ins • Video updates • Simple wellness snapshots</div>
+                <div style="color: rgba(255,255,255,.55); font-size:12px;">In-home check-ins for aging parents on the Main Line</div>
               </div>
             </div>
             <div style="color: rgba(255,255,255,.55); font-size:12px; line-height:1.5; max-width: 80ch;">
@@ -1161,15 +1165,15 @@
           try { data = await res.json(); } catch {}
           const msg =
             (data && data.errors && data.errors.length && data.errors[0].message) ||
-            "Sorry — there was a problem submitting the form. Please try again.";
+            "Sorry, there was a problem submitting the form. Please try again.";
 
           alert(msg);
         } catch {
-          alert("Network error — please check your connection and try again.");
+          alert("Network error. Please check your connection and try again.");
         } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = "Request early access";
+            submitBtn.textContent = "Request a callback";
           }
         }
       });
